@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "MortenBold";
+  src: url("./fonts/MortendBold.ttf") format("truetype"), url("./fonts/MortendBold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MortendLight";
+  src: url("./fonts/mortend-mortend-light-200.ttf") format("truetype"), url("./fonts/mortend-mortend-light-200.otf") format("opentype");
+  font-weight: light;
+  font-style: normal;
+}

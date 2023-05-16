@@ -1,0 +1,33 @@
+.card {
+  position: relative;
+  width: 26%;
+  margin: 30px;
+  margin-bottom: 5px;
+}
+
+.img-card img {
+  width: 100%;
+  border-top-left-radius: 15%;
+  border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%;
+}
+
+.product-name {
+  margin: 5px 0;
+}
+
+.product-price {
+  margin-top: 25px;
+}
+
+@media (max-width: 850px) {
+  .card {
+    width: 35%;
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    width: 75%;
+  }
+}

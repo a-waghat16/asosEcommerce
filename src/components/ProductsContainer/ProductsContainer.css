@@ -1,0 +1,20 @@
+.category-filter {
+  text-align: center;
+}
+
+.category-filter * {
+  margin: 10px;
+}
+
+.results-count {
+  text-align: center;
+  margin: 60px 0;
+  border-top: 3px solid #e7f43d;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
