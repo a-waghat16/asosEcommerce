@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Products from "./pages/Products";
 import Checkout from "./pages/Checkout";
+import { CartContextProvider } from "./contexts/CartContext";
 import "./fonts.css";
 
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
@@ -20,7 +21,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <CartContextProvider>
+      <RouterProvider router={router} />
+    </CartContextProvider>
+  );
 }
 
 export default App;

@@ -1,63 +1,73 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../contexts/CartContext";
 import "./Cart.css";
+import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
-  const [quantity, setQuantity] = useState(0);
+  const [orderSubTotal, setOrderSubTotal] = useState(0);
+  const [orderTotal, setOrderTotal] = useState(0);
+  const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
+
+  useEffect(() => {
+    const orderSubTotal = cartItems.reduce((total, item) => {
+      const itemTotal = item.price * item.quantity;
+      return total + itemTotal;
+    }, 0);
+
+    const roundedSubTotal = orderSubTotal.toFixed(2);
+    const roundedTotal = (orderSubTotal + 4.99).toFixed(2);
+    setOrderSubTotal(roundedSubTotal);
+    setOrderTotal(roundedTotal);
+  }, [cartItems]);
+
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  };
+
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    if (newQuantity < 0) {
+      window.alert("Cant go below zero");
+    } else {
+      updateQuantity(productId, newQuantity);
+    }
+  };
 
   const handleClick = () => {
     window.alert("Note: This is only a test application. Checkout feature not functional");
   };
-
-  const addQuantity = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-  };
-
-  const subtractQuantity = () => {
-    if (quantity === 0) {
-      window.alert("Cannot go below zero quantity");
-    } else {
-      const newQuantity = quantity - 1;
-      setQuantity(newQuantity);
-    }
-  };
   return (
     <div>
+      <Link className="continue-shopping" to="/products">
+        Continue Shopping
+      </Link>
       <div className="cart-items">
-        <div className="headings">
-          <div>Item</div>
-          <div>Price</div>
-          <div>Quantity</div>
-          <div>Subtotal</div>
-        </div>
-        <div className="item-details">
-          <div className="img-and-name detail">
-            <img src="https://images.asos-media.com/products/another-influence-arm-panel-crew-neck-sweat/9851612-1-black" alt="main" />
-            <p>adidas Originals Forum Low CL trainers in white</p>
+        {cartItems.length > 0 ? (
+          <div className="headings">
+            <div>Item</div>
+            <div>Price</div>
+            <div>Quantity</div>
+            <div>Subtotal</div>
           </div>
-          <div className="price detail">
-            <p>£35.00</p>
+        ) : (
+          ""
+        )}
+
+        {cartItems.length > 0 ? (
+          <div className="cart-container">
+            {cartItems.map((item) => (
+              <CartItem key={item.id} item={item} handleRemoveFromCart={handleRemoveFromCart} handleUpdateQuantity={handleUpdateQuantity} />
+            ))}
           </div>
-          <div className="quantit detail">
-            <p className="change" onClick={addQuantity}>
-              +
-            </p>
-            <p>{quantity}</p>
-            <p className="change" onClick={subtractQuantity}>
-              -
-            </p>
-            <p>Remove</p>
-          </div>
-          <div className="subtotal detail">
-            <p>£{quantity * 35}.00</p>
-          </div>
-        </div>
+        ) : (
+          <div className="empty-cart">Your Cart is empty</div>
+        )}
       </div>
       <div className="order-summary-container">
         <div className="order-summary">
           <div>
             <p>Subtotal:</p>
-            <p>£{quantity * 35}.00</p>
+            <p>£{orderSubTotal}</p>
           </div>
           <div>
             <p>Shipping:</p>
@@ -65,7 +75,7 @@ const Cart = () => {
           </div>
           <div className="order-total">
             <p>Order Total:</p>
-            <p>£{quantity * 35 + 4.99}</p>
+            <p>£{orderTotal}</p>
           </div>
         </div>
         <div className="checkout-button" onClick={handleClick}>

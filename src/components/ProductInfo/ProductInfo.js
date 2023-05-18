@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../contexts/CartContext";
 import SeeSimilar from "../SeeSimilar/SeeSimilar";
 import Gallery from "../Gallery/Gallery";
 import { options } from "../../utils/fetchData";
@@ -12,11 +13,12 @@ const ProductInfo = () => {
   const [textSign, setTextSign] = useState(Array(5).fill("+"));
   const [itemData, setItemData] = useState();
   const [quantity, setQuantity] = useState(0);
-  const [itemCart, setItemCart] = useState([]);
 
   const { id } = useParams();
 
   const url = `https://asos2.p.rapidapi.com/products/v3/detail?id=${id}&lang=en-GB&store=COM&sizeSchema=UK&currency=GBP`;
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchItemData = async () => {
@@ -51,6 +53,18 @@ const ProductInfo = () => {
     }
   };
 
+  const handleAddToCart = (product) => {
+    const productRefined = {
+      id: product.id,
+      name: product.name,
+      price: product.price.current.value,
+      quantity: quantity,
+      imageUrl: product.media.images[0].url,
+    };
+
+    addToCart(productRefined);
+  };
+
   return (
     <div>
       <div className="navigation-breadcrumb">
@@ -83,7 +97,13 @@ const ProductInfo = () => {
                 </p>
               </div>
             </div>
-            <Link className="product-button">
+            <Link
+              className="product-button"
+              to="/checkout"
+              onClick={() => {
+                handleAddToCart(itemData);
+              }}
+            >
               <h4>Add to bag</h4>
             </Link>
           </div>
