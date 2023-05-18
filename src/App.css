@@ -4,8 +4,24 @@ a {
 }
 
 body {
-  font-family: 'MortendLight', sans-serif;
+  font-family: "MortendLight", sans-serif;
 }
 
+.navigation-breadcrumb {
+  background-color: #111111;
+}
 
+.navigation-breadcrumb h3 {
+  color: #e7f43d;
+  padding: 35px;
+  margin: 0 50px;
+  letter-spacing: 2px;
+  font-size: 28px;
+}
 
+@media (max-width: 600px) {
+  .navigation-breadcrumb h3 {
+    margin: 0 30px;
+    font-size: 18px;
+  }
+}

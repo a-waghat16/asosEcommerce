@@ -1,0 +1,69 @@
+.headings {
+  display: flex;
+  margin-top: 50px;
+}
+
+.headings div {
+  width: 25%;
+  text-align: center;
+}
+
+.item-details {
+  display: flex;
+  align-items: center;
+}
+
+.detail {
+  width: 25%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.img-and-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-and-name img {
+  width: 30%;
+}
+
+.img-and-name p {
+  width: 80%;
+}
+
+.order-summary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-summary {
+  background-color: #111111;
+  color: white;
+  width: 40%;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.order-summary div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.order-total {
+  color: #e7f43d;
+}
+
+.checkout-button {
+    background-color: #e7f43d;
+    color: #111111;
+    width: 40%;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 15px;
+    margin: 30px;
+    cursor: pointer;
+}

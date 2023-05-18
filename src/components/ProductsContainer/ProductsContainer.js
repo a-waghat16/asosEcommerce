@@ -41,8 +41,12 @@ const ProductsContainer = () => {
 
   if (sortOrder === "asc") {
     filteredProducts.sort((a, b) => a.price.current.value - b.price.current.value);
-  } else {
+  } else if (sortOrder === "desc") {
     filteredProducts.sort((a, b) => b.price.current.value - a.price.current.value);
+  } else if (sortOrder === "nameAsc") {
+    filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortOrder === "nameDesc") {
+    filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
   }
 
   return (
@@ -88,13 +92,13 @@ const ProductsContainer = () => {
         </form>
       </div>
       <div className="results-count">
-        <h4>47 results found</h4>
+        <h4>{filteredProducts.length} results found</h4>
         <span className="yellow-line"></span>
       </div>
 
       <div className="container">
         {filteredProducts.map((product) => (
-          <ProductsCard key={product.id} name={product.name} imageUrl={product.imageUrl} price={product.price.current.text} />
+          <ProductsCard key={product.id} id={product.id} name={product.name} imageUrl={product.imageUrl} price={product.price.current.text} />
         ))}
       </div>
     </div>

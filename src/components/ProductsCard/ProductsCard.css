@@ -3,6 +3,11 @@
   width: 26%;
   margin: 30px;
   margin-bottom: 5px;
+  cursor: pointer
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
 
 .img-card img {

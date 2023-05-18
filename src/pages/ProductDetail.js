@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/Navbar/Navbar";
+import ProductInfo from "../components/ProductInfo/ProductInfo";
 
 const ProductDetail = () => {
   return (
-    <div>ProductDetail</div>
-  )
-}
+    <div>
+      <Navbar isHome={false}/>
+      <ProductInfo />
+    </div>
+  );
+};
 
-export default ProductDetail
+export default ProductDetail;
