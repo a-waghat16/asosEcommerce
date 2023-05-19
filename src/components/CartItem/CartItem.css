@@ -1,7 +1,6 @@
 .item-details {
   display: flex;
   align-items: center;
- 
 }
 
 .detail {
@@ -26,9 +25,17 @@
   font-size: 12px;
 }
 
+.remove {
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
+  .img-and-name {
+    align-items: baseline;
+  }
   .img-and-name p {
     font-size: 10px;
+    text-align: left;
   }
 
   .img-and-name img {

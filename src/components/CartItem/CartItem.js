@@ -36,7 +36,7 @@ const CartItem = (props) => {
         <p className="change" onClick={subtractQuantity}>
           -
         </p>
-        <p onClick={handleRemove}>Remove</p>
+        <p onClick={handleRemove} className='remove'>Remove</p>
       </div>
       <div className="subtotal detail">
         <p>£{itemSubTotal}</p>

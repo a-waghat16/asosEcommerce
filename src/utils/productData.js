@@ -32,21 +32,6 @@ export const productData = {
     },
     {
       gender: "men",
-      id: 20447631,
-      name: "adidas Originals Forum Low CL trainers in white",
-      price: {
-        current: { value: 85.0, text: "£85.00" },
-        currency: "GBP",
-      },
-      colour: "Chalk white",
-      colourWayId: 204476334,
-      brandName: "adidas Originals",
-      productCode: 127354765,
-      url: "adidas-originals/adidas-originals-forum-low-cl-trainers-in-white/prd/204476310?clr=chalk-white&colourWayId=204476334",
-      imageUrl: "images.asos-media.com/products/adidas-originals-forum-low-cl-trainers-in-white/204476310-1-chalkwhite",
-    },
-    {
-      gender: "men",
       id: 204976725,
       name: "adidas Outdoor graphic t-shirt in grey",
       price: {
@@ -154,21 +139,6 @@ export const productData = {
       productCode: 115944231,
       url: "adidas-performance/adidas-tennis-ergo-shorts-in-grey/prd/202164791?clr=grey&colourWayId=202164861",
       imageUrl: "images.asos-media.com/products/adidas-tennis-ergo-shorts-in-grey/202164791-1-grey",
-    },
-    {
-      gender: "men",
-      id: 20338068,
-      name: "adidas Originals 3 pack mid cut crew socks in white grey and black",
-      price: {
-        current: { value: 12.0, text: "£12.00" },
-        currency: "GBP",
-      },
-      colour: "MULTI",
-      colourWayId: 203380663,
-      brandName: "adidas Originals",
-      productCode: 120948577,
-      url: "adidas-originals/adidas-originals-3-pack-mid-cut-crew-socks-in-white-grey-and-black/prd/203380658?clr=multi&colourWayId=203380663",
-      imageUrl: "images.asos-media.com/products/adidas-originals-3-pack-mid-cut-crew-socks-in-white-grey-and-black/203380658-1-multi",
     },
     {
       gender: "men",
